@@ -1,1 +1,69 @@
-/* Empty CSS file - Add your styles here */
+/* Custom styles for smooth scrolling and animations */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Floating Contact Button Animation */
+.floating-contact {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Project image styling */
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* Ensure project cards maintain aspect ratio */
+.project-card {
+    transition: all 0.3s ease;
+}
+
+/* Custom focus styles for accessibility */
+.nav-links a:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+
+/* Custom hover effects */
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Skills list responsive grid */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+/* Contact info responsive layout */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}

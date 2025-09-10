@@ -8,87 +8,120 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <nav class="sticky-nav">
-            <div class="logo">
-                <h1>Prashant</h1>
+<body class="bg-gray-50">
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-lg">
+        <nav class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <h1 class="text-2xl font-bold text-gray-800">Prashant</h1>
+                </div>
+                <ul class="nav-links hidden md:flex space-x-8">
+                    <li><a href="#home" class="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all duration-300 font-medium">Home</a></li>
+                    <li><a href="#projects" class="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all duration-300 font-medium">Projects</a></li>
+                    <li><a href="#skills" class="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all duration-300 font-medium">Skills</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-blue-600 hover:scale-105 transition-all duration-300 font-medium">Contact</a></li>
+                </ul>
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
         </nav>
     </header>
 
     <main>
-        <section id="home">
-            <div class="container">
-                <h1>About Me</h1>
-                <p>Hey! I'm <span id="typed-text"></span></p>
+        <!-- Home Section with Gradient Background -->
+        <section id="home" class="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center pt-20">
+            <div class="container max-w-4xl mx-auto px-4 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">About Me</h1>
+                <p class="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
+                    Hey! I'm <span id="typed-text" class="text-yellow-300 font-semibold"></span>
+                </p>
             </div>
         </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="project-grid">
-                    <article class="project-card">
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Projects</h2>
+                <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="project-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <img src="assets/jobtrackr.png" alt="JobTrackr Project" class="project-image">
-                        <h3>JobTrackr</h3>
-                        <p>React + Backend integration, job tracking platform</p>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">JobTrackr</h3>
+                            <p class="text-gray-600 leading-relaxed">React + Backend integration, job tracking platform</p>
+                        </div>
                     </article>
-                    <article class="project-card">
+                    <article class="project-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <img src="assets/java-result-system.png" alt="Java Result System" class="project-image">
-                        <h3>Java Result System</h3>
-                        <p>University result automation project</p>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Java Result System</h3>
+                            <p class="text-gray-600 leading-relaxed">University result automation project</p>
+                        </div>
                     </article>
-                    <article class="project-card">
+                    <article class="project-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
                         <img src="assets/electricity-billing.png" alt="Electricity Billing System" class="project-image">
-                        <h3>Electricity Billing System</h3>
-                        <p>Java console app for electricity billing</p>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Electricity Billing System</h3>
+                            <p class="text-gray-600 leading-relaxed">Java console app for electricity billing</p>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <div class="container">
-                <h2>Skills</h2>
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-gray-50">
+            <div class="container max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Skills</h2>
                 <ul class="skills-list">
-                    <li>C++</li>
-                    <li>Python</li>
-                    <li>Java</li>
-                    <li>JavaScript</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Web Development</li>
-                    <li>DSA</li>
-                    <li>Cybersecurity</li>
-                    <li>8051 Assembly</li>
-                    <li>GitHub</li>
-                    <li>Replit</li>
-                    <li>Tailwind CSS</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">C++</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Python</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Java</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">JavaScript</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">HTML</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">CSS</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Web Development</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">DSA</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Cybersecurity</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">8051 Assembly</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">GitHub</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Replit</li>
+                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Tailwind CSS</li>
                 </ul>
             </div>
         </section>
 
-        <section id="contact">
-            <div class="container">
-                <h2>Contact</h2>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-12">Contact</h2>
                 <div class="contact-info">
-                    <p>Email: <a href="mailto:singhprashant.globe@gmail.com">singhprashant.globe@gmail.com</a></p>
-                    <p>LinkedIn: <a href="https://www.linkedin.com/in/prashant-singh-943364320" target="_blank">https://www.linkedin.com/in/prashant-singh-943364320</a></p>
+                    <p class="text-lg">
+                        <span class="font-semibold text-gray-700">Email:</span> 
+                        <a href="mailto:singhprashant.globe@gmail.com" class="text-blue-600 hover:text-blue-800 transition-colors duration-300 hover:underline">singhprashant.globe@gmail.com</a>
+                    </p>
+                    <p class="text-lg">
+                        <span class="font-semibold text-gray-700">LinkedIn:</span> 
+                        <a href="https://www.linkedin.com/in/prashant-singh-943364320" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors duration-300 hover:underline">Connect with me</a>
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
         <p>&copy; 2025 Prashant. All rights reserved.</p>
     </footer>
+
+    <!-- Floating Contact Button -->
+    <a href="#contact" class="floating-contact fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium z-40">
+        Contact Me
+    </a>
 
     <script src="script.js"></script>
     <script>
