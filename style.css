@@ -1,4 +1,13 @@
 /* Custom styles for smooth scrolling and animations */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+:root {
+    --primary: #3b82f6;   /* sky blue */
+    --primary-dark: #1d4ed8; /* deep blue */
+    --secondary: #8b5cf6; /* purple */
+    --accent: #14b8a6;   /* teal */
+    --light-bg: #f9fafb;
+    --dark-bg: #111827;
+}
 
 html {
     scroll-behavior: smooth;
@@ -26,13 +35,19 @@ html {
 }
 
 /* Enhanced button hover effects */
-#theme-toggle {
+button, #theme-toggle {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
     transition: all 0.3s ease;
 }
 
-#theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+button:hover, #theme-toggle:hover {
+    background: var(--secondary);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 /* Contact links enhanced styling */
@@ -78,36 +93,58 @@ html {
     color: white;
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
 }
+/* Skills Section - soothing gradient */
+.skills-section {
+    background: linear-gradient(135deg, var(--light-bg), #e0f2fe);
+    padding: 4rem 2rem;
+}
+
+/* Projects Section - darker for contrast */
+.projects-section {
+    background: var(--dark-bg);
+    color: #f9fafb;
+    padding: 4rem 2rem;
+}
+
+/* Contact Section - clean and minimal */
+.contact-section {
+    background: var(--light-bg);
+    padding: 4rem 2rem;
+}
+
 
 /* Enhanced readability and modern color palette */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #374151;
+    background: #f9fafb; /* light soothing background */
 }
 
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+
 /* Improved contrast for dark mode */
+.dark body {
+    background: var(--dark-bg);
+    color: #e5e7eb;
+}
+
+.dark a {
+    color: var(--primary);
+}
+
+
+
+
 .dark body {
     color: #e5e7eb;
 }
 
-/* Better link contrast */
-a {
-    color: #3b82f6;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #1d4ed8;
-}
-
-.dark a {
-    color: #60a5fa;
-}
-
-.dark a:hover {
-    color: #93c5fd;
-}
 
 /* Floating Contact Button Animation */
 .floating-contact {
@@ -171,4 +208,36 @@ a:hover {
         justify-content: center;
         gap: 2rem;
     }
+}
+/* Bubble animation - bigger and more visible */
+.bubble {
+  position: absolute;
+  bottom: -200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3); /* brighter than 0.2 */
+  animation: floatUp 16s linear infinite;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); /* stronger glow */
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -200px;
+    transform: translateX(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(40px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    bottom: 110%;
+    transform: translateX(-30px) scale(1);
+    opacity: 0.6;
+  }
+}
+/* Wavy divider between sections */
+.section-divider {
+    height: 80px;
+    background: var(--primary);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
 }

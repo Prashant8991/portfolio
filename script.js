@@ -51,26 +51,9 @@ function initSmoothScrolling() {
 }
 
 // Typing effect in Home section
-function initTypingEffect() {
-    const typedElement = document.getElementById('typed-text');
-    
-    if (typedElement && typeof Typed !== 'undefined') {
-        new Typed('#typed-text', {
-            strings: [
-                'Prashant Singh, a 2nd-year CSE student specializing in Cybersecurity at VIT Chennai.',
-                'someone who loves building web apps, solving DSA problems, and creating projects that actually make life easier.',
-                'welcome to my corner of the web!'
-            ],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 2000,
-            startDelay: 500,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
-        });
-    }
-}
+// Typing effect for full intro
+function initTypingEffect() { const typedElement = document.getElementById('typed-text'); if (typedElement && typeof Typed !== 'undefined') { new Typed('#typed-text', { strings: [ 'Prashant Singh, a 2nd-year CSE student specializing in Cybersecurity at VIT Chennai.', 'someone who loves building web apps, solving DSA problems, and creating projects that actually make life easier.', 'welcome to my corner of the web!' ], typeSpeed: 50, backSpeed: 30, backDelay: 2000, startDelay: 500, loop: true, showCursor: true, cursorChar: '|' }); } }
+
 
 // Enhanced hover animations for project cards
 function initProjectCardAnimations() {

@@ -70,84 +70,140 @@
 
     <main>
         <!-- Home Section with Gradient Background -->
-        <section id="home" class="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center pt-20">
-            <div class="container max-w-4xl mx-auto px-4 text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">About Me</h1>
-                <p class="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-                    Hey! I'm <span id="typed-text" class="text-yellow-300 font-semibold"></span>
-                </p>
-            </div>
-        </section>
+        <!-- Home Section with Floating Bubbles -->
+<section id="home" class="relative min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center pt-20 overflow-hidden">
+    
+    <!-- Floating Bubbles -->
+    <div class="bubble" style="width:80px; height:80px; left:10%; animation-delay:0s;"></div>
+    <div class="bubble" style="width:60px; height:60px; left:25%; animation-delay:3s;"></div>
+    <div class="bubble" style="width:40px; height:40px; left:55%; animation-delay:6s;"></div>
+    <div class="bubble" style="width:100px; height:100px; left:70%; animation-delay:2s;"></div>
+    <div class="bubble" style="width:50px; height:50px; left:85%; animation-delay:5s;"></div>
+
+    <!-- About Content -->
+    <div class="container relative z-10 max-w-4xl mx-auto px-4 text-center text-white fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">About Me</h1>
+        <p class="text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
+            Hey! I'm <span id="typed-text" class="text-yellow-300 font-semibold"></span>
+        </p>
+    </div>
+</section>
+
 
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-white dark:bg-gray-800">
             <div class="container max-w-6xl mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">Projects</h2>
                 <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <article class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                        <img src="assets/jobtrackr.png" alt="JobTrackr Project" class="project-image">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">JobTrackr</h3>
-                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">React + Backend integration, job tracking platform</p>
-                        </div>
-                    </article>
-                    <article class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                        <img src="assets/java-result-system.png" alt="Java Result System" class="project-image">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Java Result System</h3>
-                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">University result automation project</p>
-                        </div>
-                    </article>
-                    <article class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                        <img src="assets/electricity-billing.png" alt="Electricity Billing System" class="project-image">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Electricity Billing System</h3>
-                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Java console app for electricity billing</p>
-                        </div>
-                    </article>
+                    <article class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:scale-105">
+    <img src="assets/jobtrackr.png.jpg" alt="JobTrackr Project" class="project-image w-full h-48 object-cover rounded-t-xl">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">JobTrackr</h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            A web app to track job applications, deadlines, and progress with a sleek, user-friendly interface.
+        </p>
+        <!-- Small GitHub button -->
+        <a href="https://github.com/Prashant8991/JobTrackr" target="_blank"
+           class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12a12 12 0 008.21 11.433c.6.113.82-.26.82-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.388-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.494.997.108-.775.418-1.305.762-1.606-2.665-.303-5.466-1.335-5.466-5.937 0-1.311.469-2.382 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 016 0c2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.236 1.911 1.236 3.222 0 4.61-2.805 5.63-5.476 5.927.43.37.813 1.102.813 2.222v3.293c0 .32.217.694.825.576A12 12 0 0024 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View on GitHub
+        </a>
+    </div>
+</article>
+<article class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:scale-105">
+    <img src="assets/deadlock-detection.png.jpg" alt="Deadlock Detection System" class="project-image w-full h-48 object-cover rounded-t-xl">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Deadlock Detection System</h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            A program that detects deadlocks in concurrent processes using resource allocation and wait-for graphs.
+        </p>
+        <!-- GitHub button -->
+        <a href="https://github.com/Prashant8991/DeadlockDetection" target="_blank"
+         class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12a12 12 0 008.21 11.433c.6.113.82-.26.82-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.388-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.494.997.108-.775.418-1.305.762-1.606-2.665-.303-5.466-1.335-5.466-5.937 0-1.311.469-2.382 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 016 0c2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.236 1.911 1.236 3.222 0 4.61-2.805 5.63-5.476 5.927.43.37.813 1.102.813 2.222v3.293c0 .32.217.694.825.576A12 12 0 0024 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View on GitHub
+        </a>
+    </div>
+</article>
+
+                    
+                   <article class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:scale-105">
+    <img src="assets/gptpolish-extension.png.png" alt="GPTPolishExtension" class="project-image w-full h-48 object-cover rounded-t-xl">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">GPTPolishExtension</h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            A Chrome extension that refines and polishes text prompts for clarity, conciseness, and professional impact using AI.
+        </p>
+        <!-- GitHub button -->
+        <a href="https://github.com/Prashant8991/GPTPolishExtension" target="_blank"
+            class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12a12 12 0 008.21 11.433c.6.113.82-.26.82-.577v-2.234c-3.338.726-4.042-1.61-4.042-1.61-.546-1.388-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.494.997.108-.775.418-1.305.762-1.606-2.665-.303-5.466-1.335-5.466-5.937 0-1.311.469-2.382 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 016 0c2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.236 1.911 1.236 3.222 0 4.61-2.805 5.63-5.476 5.927.43.37.813 1.102.813 2.222v3.293c0 .32.217.694.825.576A12 12 0 0024 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View on GitHub
+        </a>
+    </div>
+</article>
+
+                 
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-gray-50">
-            <div class="container max-w-6xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Skills</h2>
-                <ul class="skills-list">
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">C++</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Python</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Java</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">JavaScript</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">HTML</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">CSS</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Web Development</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">DSA</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Cybersecurity</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">8051 Assembly</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">GitHub</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Replit</li>
-                    <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Tailwind CSS</li>
-                </ul>
-            </div>
-        </section>
+<section id="skills" class="py-20 bg-gray-50">
+    <div class="container max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Skills</h2>
+        <ul class="skills-list">
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">C++</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Python</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Java</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">JavaScript</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">HTML</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">CSS</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Web Development</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">DSA</li>
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Cybersecurity</li>
+    
+            <li class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 text-center font-medium text-gray-700">Tailwind CSS</li>
+        </ul>
+    </div>
+</section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-white">
-            <div class="container max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold text-gray-800 mb-12">Contact</h2>
-                <div class="contact-info">
-                    <p class="text-lg">
-                        <span class="font-semibold text-gray-700">Email:</span> 
-                        <a href="mailto:singhprashant.globe@gmail.com" class="text-blue-600 hover:text-blue-800 transition-colors duration-300 hover:underline">singhprashant.globe@gmail.com</a>
-                    </p>
-                    <p class="text-lg">
-                        <span class="font-semibold text-gray-700">LinkedIn:</span> 
-                        <a href="https://www.linkedin.com/in/prashant-singh-943364320" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors duration-300 hover:underline">Connect with me</a>
-                    </p>
-                </div>
+
+<!-- Contact Section -->
+<section id="Contact" class="py-20 bg-white">
+    <div class="container max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-12">Contact Details</h2>
+        <div class="contact-info flex flex-col md:flex-row justify-center gap-6">
+            
+            <!-- Email Card -->
+            <div class="contact-card bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 flex items-center justify-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <span class="mr-3 text-blue-600 text-xl">📧</span>
+                <a href="mailto:singhprashant.globe@gmail.com" class="text-gray-800 dark:text-white font-medium hover:text-blue-600 transition-colors duration-300">singhprashant.globe@gmail.com</a>
             </div>
-        </section>
-    </main>
+
+            <!-- Phone Card -->
+            <div class="contact-card bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 flex items-center justify-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <span class="mr-3 text-blue-600 text-xl">📞</span>
+                <a href="tel:9569306385" class="text-gray-800 dark:text-white font-medium hover:text-blue-600 transition-colors duration-300">+91 9569306385</a>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-card bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 flex items-center justify-center transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <span class="mr-3 text-blue-600 text-xl">💼</span>
+                <a href="https://www.linkedin.com/in/prashant-singh-943364320" target="_blank" class="text-gray-800 dark:text-white font-medium hover:text-blue-600 transition-colors duration-300">Connect with me</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8 text-center">
@@ -155,9 +211,7 @@
     </footer>
 
     <!-- Floating Contact Button -->
-    <a href="#contact" class="floating-contact fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium z-40">
-        Contact Me
-    </a>
+    <a href="#contact" class="floating-contact fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium z-40">Contact Me</a>
 
     <script src="script.js"></script>
 </body>
