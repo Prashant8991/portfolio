@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prashant Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,7 +27,7 @@
         <section id="home">
             <div class="container">
                 <h1>About Me</h1>
-                <p>Hey! I'm Prashant Singh, a 2nd-year CSE student specializing in Cybersecurity at VIT Chennai. I love building web apps, solving DSA problems, and creating projects that actually make life easier. Welcome to my corner of the web!</p>
+                <p>Hey! I'm <span id="typed-text"></span></p>
             </div>
         </section>
 
@@ -89,5 +91,21 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        var typed = new Typed('#typed-text', {
+            strings: [
+                'Prashant Singh, a 2nd-year CSE student specializing in Cybersecurity at VIT Chennai.',
+                'someone who loves building web apps, solving DSA problems, and creating projects that actually make life easier.',
+                'welcome to my corner of the web!'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            startDelay: 500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+    </script>
 </body>
 </html>
