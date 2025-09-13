@@ -2,11 +2,37 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
+    initIntroAnimation();
     initSmoothScrolling();
     initTypingEffect();
     initProjectCardAnimations();
     initThemeToggle();
+    initSkillsAnimations();
 });
+
+// Intro Animation Sequence
+function initIntroAnimation() {
+    const introContainer = document.getElementById('intro-animation');
+    const aboutContent = document.getElementById('about-content');
+    
+    if (!introContainer || !aboutContent) return;
+    
+    // Show intro animation immediately
+    introContainer.style.display = 'flex';
+    
+    // After 3.5 seconds, start the transition
+    setTimeout(() => {
+        // Fade out intro animation
+        introContainer.classList.add('fade-out');
+        
+        // After fade out completes, show about content
+        setTimeout(() => {
+            introContainer.style.display = 'none';
+            aboutContent.classList.add('show');
+        }, 800); // Match the CSS transition duration
+        
+    }, 3500); // Total intro duration: 3.5 seconds
+}
 
 // Smooth scrolling for navbar links
 function initSmoothScrolling() {
@@ -183,5 +209,67 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// Skills Section Animations
+function initSkillsAnimations() {
+    const skillCards = document.querySelectorAll('.skill-card');
+    const specializationCards = document.querySelectorAll('.specialization-card');
+    
+    // Create intersection observer for skill bars
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target.querySelector('.skill-bar');
+                if (skillBar) {
+                    const level = skillBar.getAttribute('data-level');
+                    skillBar.style.setProperty('--level', level + '%');
+                    skillBar.style.width = level + '%';
+                }
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    // Observe all skill cards
+    skillCards.forEach(card => {
+        skillObserver.observe(card);
+        
+        // Add hover effects
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateY(-8px)';
+            this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) translateY(0)';
+            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+        });
+    });
+    
+    // Add hover effects for specialization cards
+    specializationCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateY(-8px)';
+            this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) translateY(0)';
+            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+        });
+    });
+    
+    // Add click animation for skill cards
+    skillCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1.05) translateY(-8px)';
+            }, 150);
+        });
+    });
+}
 
 console.log('Prashant Portfolio JavaScript loaded successfully! 🚀');
