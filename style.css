@@ -673,3 +673,162 @@ h1, h2, h3 {
     @apply text-white font-semibold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
+
+/* Enhanced About Section Styles */
+.about-description {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-grid {
+    margin-top: 2rem;
+}
+
+.stat-card {
+    @apply bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 text-center border border-white border-opacity-20 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+.stat-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.stat-icon {
+    @apply text-4xl mb-3;
+}
+
+.stat-number {
+    @apply text-xl font-bold text-white mb-1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    @apply text-white text-sm font-semibold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Projects Section Styles */
+.project-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .project-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.7));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.project-card-inner {
+    @apply relative;
+}
+
+.project-image-container {
+    @apply relative overflow-hidden;
+    height: 200px;
+}
+
+.project-image {
+    @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-end opacity-0 transition-opacity duration-300;
+    z-index: 10;
+    padding: 1rem;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay-title {
+    @apply text-white text-xl font-bold mb-3 text-center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.project-tech {
+    @apply flex flex-wrap gap-2 justify-center;
+}
+
+.tech-tag {
+    @apply px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-content {
+    @apply p-6;
+}
+
+.project-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white mb-3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.project-description {
+    @apply text-gray-800 dark:text-gray-100 leading-relaxed mb-4 font-semibold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .project-title {
+    @apply text-white font-bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark .project-description {
+    @apply text-gray-200 font-bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.project-actions {
+    @apply mt-4;
+}
+
+.project-link {
+    @apply inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+}
+
+.project-link svg {
+    @apply text-white;
+}
+
+/* Project section animations */
+.project-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.4s; }
+.stat-card:nth-child(2) { animation-delay: 0.5s; }
+.stat-card:nth-child(3) { animation-delay: 0.6s; }
