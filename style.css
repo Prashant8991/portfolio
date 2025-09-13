@@ -119,6 +119,13 @@ body {
     line-height: 1.8;
     color: #374151;
     background: #f9fafb; /* light soothing background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure dark mode styles are applied */
+.dark body {
+    background: #111827 !important;
+    color: #e5e7eb !important;
 }
 
 h1, h2, h3 {

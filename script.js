@@ -2,11 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
+    initDarkMode();
     initIntroAnimation();
     initSmoothScrolling();
     initTypingEffect();
     initProjectCardAnimations();
-    initThemeToggle();
     initSkillsAnimations();
     initMobileMenu();
 });
@@ -114,51 +114,10 @@ function initProjectCardAnimations() {
     });
 }
 
-// Dark/Light mode toggle functionality
-function initThemeToggle() {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-    
-    if (!themeToggleBtn) return;
-    
-    // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    
-    // Apply initial theme
-    if (currentTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-        themeToggleLightIcon.classList.remove('hidden');
-        themeToggleDarkIcon.classList.add('hidden');
-    } else {
-        document.documentElement.classList.remove('dark');
-        themeToggleDarkIcon.classList.remove('hidden');
-        themeToggleLightIcon.classList.add('hidden');
-    }
-    
-    // Theme toggle event listener
-    themeToggleBtn.addEventListener('click', function() {
-        // Toggle dark mode
-        if (document.documentElement.classList.contains('dark')) {
-            // Switch to light mode
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            themeToggleDarkIcon.classList.remove('hidden');
-            themeToggleLightIcon.classList.add('hidden');
-        } else {
-            // Switch to dark mode
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            themeToggleLightIcon.classList.remove('hidden');
-            themeToggleDarkIcon.classList.add('hidden');
-        }
-        
-        // Add a subtle animation to the button
-        themeToggleBtn.style.transform = 'rotate(180deg)';
-        setTimeout(() => {
-            themeToggleBtn.style.transform = 'rotate(0deg)';
-        }, 300);
-    });
+// Set dark mode permanently
+function initDarkMode() {
+    document.documentElement.classList.add('dark');
+    document.body.classList.add('bg-gray-900', 'text-white');
 }
 
 // Additional utility functions
@@ -328,20 +287,7 @@ function initMobileMenu() {
         }
     });
     
-    // Mobile theme toggle functionality
-    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-    if (mobileThemeToggle) {
-        mobileThemeToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Use the existing theme toggle function
-            const desktopThemeToggle = document.getElementById('theme-toggle');
-            if (desktopThemeToggle) {
-                desktopThemeToggle.click();
-            }
-        });
-    }
+    // Mobile theme toggle removed - using permanent dark mode
 }
 
 console.log('Prashant Portfolio JavaScript loaded successfully! 🚀');
