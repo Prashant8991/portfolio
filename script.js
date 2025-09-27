@@ -18,21 +18,17 @@ function initIntroAnimation() {
     
     if (!introContainer || !aboutContent) return;
     
-    // Show intro animation immediately
+    // Show intro animation briefly, then show content
     introContainer.style.display = 'flex';
     
-    // After 3.5 seconds, start the transition
+    // Reduced timing for faster display
     setTimeout(() => {
-        // Fade out intro animation
         introContainer.classList.add('fade-out');
-        
-        // After fade out completes, show about content
         setTimeout(() => {
             introContainer.style.display = 'none';
             aboutContent.classList.add('show');
-        }, 800); // Match the CSS transition duration
-        
-    }, 3500); // Total intro duration: 3.5 seconds
+        }, 300);
+    }, 1500); // Reduced from 3.5 seconds to 1.5 seconds
 }
 
 // Smooth scrolling for navbar links

@@ -315,7 +315,9 @@ h1, h2, h3 {
 
 /* About content animation */
 #about-content {
-    transition: all 1s ease-out;
+    transition: all 0.5s ease-out;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 #about-content.show {
@@ -326,8 +328,9 @@ h1, h2, h3 {
 /* Intro fade out animation */
 .intro-container.fade-out {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.05);
     pointer-events: none;
+    transition: all 0.3s ease-out;
 }
 
 /* Gradient text animation */
