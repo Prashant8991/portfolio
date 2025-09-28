@@ -1,5 +1,158 @@
 /* Custom styles for smooth scrolling and animations */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* 3D Animation Integration Styles */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Enhanced glassmorphism effects for content */
+section {
+    position: relative;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating animation for cards */
+.project-card, .skill-card, .contact-card, .stat-card {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: calc(var(--index, 0) * 0.5s);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    25% { transform: translateY(-10px) rotateX(2deg); }
+    50% { transform: translateY(-5px) rotateX(0deg); }
+    75% { transform: translateY(-15px) rotateX(-2deg); }
+}
+
+/* Enhanced glow effects */
+.project-card:hover, .skill-card:hover, .contact-card:hover {
+    box-shadow: 
+        0 0 30px rgba(59, 130, 246, 0.3),
+        0 0 60px rgba(16, 185, 129, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px) scale(1.05);
+}
+
+/* Particle overlay for sections */
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Content should be above the overlay */
+section > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced text glow effects */
+h1, h2, h3 {
+    text-shadow: 
+        0 0 10px rgba(59, 130, 246, 0.5),
+        0 0 20px rgba(16, 185, 129, 0.3),
+        0 0 30px rgba(139, 92, 246, 0.2);
+}
+
+/* Animated borders */
+.project-card, .skill-card, .contact-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before, .skill-card::before, .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(59, 130, 246, 0.4),
+        rgba(16, 185, 129, 0.4),
+        transparent
+    );
+    transition: left 0.8s ease;
+    z-index: 1;
+}
+
+.project-card:hover::before, .skill-card:hover::before, .contact-card:hover::before {
+    left: 100%;
+}
+
+/* Enhanced navigation with 3D effects */
+header {
+    backdrop-filter: blur(20px);
+    background: rgba(17, 24, 39, 0.8);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    text-shadow: 
+        0 0 10px rgba(59, 130, 246, 0.8),
+        0 0 20px rgba(16, 185, 129, 0.6),
+        0 0 30px rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Floating contact button enhancement */
+.floating-contact {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(16, 185, 129, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(59, 130, 246, 0.4),
+        0 0 20px rgba(16, 185, 129, 0.3);
+    animation: floatButton 3s ease-in-out infinite;
+}
+
+@keyframes floatButton {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.floating-contact:hover {
+    box-shadow: 
+        0 12px 40px rgba(59, 130, 246, 0.6),
+        0 0 30px rgba(16, 185, 129, 0.5),
+        0 0 50px rgba(139, 92, 246, 0.3);
+    transform: translateY(-15px) scale(1.1);
+}
+
 :root {
     --primary: #3b82f6;   /* sky blue */
     --primary-dark: #1d4ed8; /* deep blue */
@@ -353,7 +506,13 @@ h1, h2, h3 {
 
 /* Enhanced Skills Section Styles */
 .skill-card {
-    @apply bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer relative overflow-hidden;
+    @apply rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer relative overflow-hidden;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .skill-card::before {
@@ -363,7 +522,7 @@ h1, h2, h3 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(16, 185, 129, 0.3), transparent);
     transition: left 0.6s ease;
 }
 
@@ -403,7 +562,11 @@ h1, h2, h3 {
 
 /* Specialization Cards */
 .specialization-card {
-    @apply bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer relative overflow-hidden;
+    @apply rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer relative overflow-hidden;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .specialization-card::before {
@@ -514,16 +677,22 @@ h1, h2, h3 {
 /* Enhanced Contact Section Styles */
 .contact-card {
     @apply relative overflow-hidden rounded-2xl;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     transition: all 0.5s ease;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .contact-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(59, 130, 246, 0.4),
+        0 0 50px rgba(16, 185, 129, 0.3);
+    border-color: rgba(59, 130, 246, 0.6);
 }
 
 .contact-card-inner {
@@ -562,8 +731,12 @@ h1, h2, h3 {
 
 /* Call to Action Card */
 .cta-card {
-    @apply bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-12 border border-white border-opacity-20;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    @apply backdrop-blur-lg rounded-3xl p-12;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .cta-title {
@@ -686,9 +859,12 @@ h1, h2, h3 {
 
 /* Enhanced About Section Styles */
 .about-description {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .stats-grid {
@@ -696,13 +872,20 @@ h1, h2, h3 {
 }
 
 .stat-card {
-    @apply bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 text-center border border-white border-opacity-20 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    @apply backdrop-blur-lg rounded-2xl p-6 text-center transition-all duration-300 transform hover:scale-105 hover:-translate-y-2;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .stat-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(59, 130, 246, 0.4),
+        0 0 50px rgba(16, 185, 129, 0.3);
+    border-color: rgba(59, 130, 246, 0.6);
 }
 
 .stat-icon {
@@ -722,20 +905,25 @@ h1, h2, h3 {
 /* Enhanced Projects Section Styles */
 .project-card {
     @apply relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .dark .project-card {
-    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.7));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .project-card:hover {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(59, 130, 246, 0.4),
+        0 0 50px rgba(16, 185, 129, 0.3);
+    border-color: rgba(59, 130, 246, 0.6);
 }
 
 .project-card-inner {
