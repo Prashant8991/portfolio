@@ -1,0 +1,23 @@
+{
+  "name": "prashant-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Prashant Singh with 3D animations",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "start": "npx serve . -p 3000",
+    "build": "echo 'Static site - no build needed'",
+    "preview": "npx serve . -p 4173"
+  },
+  "keywords": [
+    "portfolio",
+    "3d-animation",
+    "threejs",
+    "web-development"
+  ],
+  "author": "Prashant Singh",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
